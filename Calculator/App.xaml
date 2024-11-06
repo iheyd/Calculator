@@ -1,0 +1,17 @@
+﻿<Application x:Class="Calculator.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Calculator"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/Number.xaml"/>
+                <ResourceDictionary Source="Style/Operator.xaml"/>
+                <ResourceDictionary Source="Style/Equal.xaml"/>
+                <ResourceDictionary Source="Style/Back.xaml"/>
+                <ResourceDictionary Source="Style/TopPanel.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
