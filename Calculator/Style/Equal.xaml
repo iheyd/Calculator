@@ -6,14 +6,19 @@
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="1"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" CornerRadius="4">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid>
+                            <Image x:Name="equalImage" Source="pack://application:,,,/Images/equal.png" Stretch="Uniform"/>
+
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="equalImage" Property="Source" Value="pack://application:,,,/Images/equal_hover.png"/>
                             <Setter Property="Background" Value="#47B1E9"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
@@ -23,6 +28,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="White"/>
     </Style>
 </ResourceDictionary>

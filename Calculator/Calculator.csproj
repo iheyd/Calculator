@@ -184,5 +184,13 @@
       <Folder Include="Model\" />
       <Folder Include="ViewModel\" />
     </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Images\common.png" />
+      <Resource Include="Images\common_hover.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Images\engineering.png" />
+      <Resource Include="Images\engineering_hover.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
