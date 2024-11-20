@@ -19,3 +19,14 @@ C:\Users\0_ihe\RiderProjects\Calculator\Calculator\obj\Debug\Style\Operator.baml
 C:\Users\0_ihe\RiderProjects\Calculator\Calculator\obj\Debug\Calculator_MarkupCompile.lref
 C:\Users\0_ihe\RiderProjects\Calculator\Calculator\obj\Debug\App.baml
 C:\Users\0_ihe\RiderProjects\Calculator\Calculator\obj\Debug\Style\TopPanel.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Style\Back.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Style\Equal.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Style\Number.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Style\Operator.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Style\TopPanel.baml
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Views\MainWindow.g.cs
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\App.g.cs
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Calculator_MarkupCompile.cache
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\Calculator_MarkupCompile.lref
