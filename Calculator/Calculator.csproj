@@ -51,7 +51,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="asd\asd.cs" />
     <Compile Include="Models\ArithmeticOperations.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\DisplayControl.cs" />

@@ -15,8 +15,8 @@ namespace Calculator.Models
         {
             if (CurrentInput != "0")
             {
-                _previousInput = CurrentInput;
-                _currentOperation = "+";
+                PreviousInput = CurrentInput;
+                CurrentOperation = "+";
                 CurrentInput = "0";
 
             }
@@ -25,8 +25,8 @@ namespace Calculator.Models
         {
             if (CurrentInput != "0")
             {
-                _previousInput = CurrentInput;
-                _currentOperation = "-";
+                PreviousInput = CurrentInput;
+                CurrentOperation = "-";
                 CurrentInput = "0";
 
             }
@@ -35,8 +35,8 @@ namespace Calculator.Models
         {
             if (CurrentInput != "0")
             {
-                _previousInput = CurrentInput;
-                _currentOperation = "*";
+                PreviousInput = CurrentInput;
+                CurrentOperation = "*";
                 CurrentInput = "0";
 
             }
@@ -45,8 +45,8 @@ namespace Calculator.Models
         {
             if (CurrentInput != "0")
             {
-                _previousInput = CurrentInput;
-                _currentOperation = "%";
+                PreviousInput = CurrentInput;
+                CurrentOperation = "%";
                 CurrentInput = "0";
 
             }
@@ -55,8 +55,8 @@ namespace Calculator.Models
         {
             if (CurrentInput != "0")
             {
-                _previousInput = CurrentInput;
-                _currentOperation = "/";
+                PreviousInput = CurrentInput;
+                CurrentOperation = "/";
                 CurrentInput = "0";
             }
         }

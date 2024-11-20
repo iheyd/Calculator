@@ -11,7 +11,8 @@ namespace Calculator.Models
     {
         private void UpdateMemoryButtons()
         {
-            bool isMemoryNotEmpty = _memory != 0;
+            /*
+            bool isMemoryNotEmpty = Memory != 0;
 
             MemoryClearButton.IsEnabled = isMemoryNotEmpty;
             MemoryRecallButton.IsEnabled = isMemoryNotEmpty;
@@ -26,35 +27,30 @@ namespace Calculator.Models
                 MemoryMenu.Visibility = Visibility.Collapsed;
             }
 
-            private void MemorySave_Click(object sender, RoutedEventArgs e)
+            private void MemorySave_Click()
             {
-                _memory = Convert.ToDouble(_currentInput.Replace(",", "."));
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+                Memory = Convert.ToDouble(CurrentInput.Replace(",", "."));
                 UpdateMemoryButtons();
             }
-            private void MemoryClear_Click(object sender, RoutedEventArgs e)
+            private void MemoryClear_Click()
             {
-                _memory = 0;
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+                Memory = 0;
                 UpdateMemoryButtons();
             }
-            private void MemoryRecall_Click(object sender, RoutedEventArgs e)
+            private void MemoryRecall_Click()
             {
-                _currentInput = _memory.ToString().Replace(",", ".");
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+                CurrentInput = Memory.ToString().Replace(",", ".");
                 UpdateMemoryButtons();
             }
-            private void MemoryAdd_Click(object sender, RoutedEventArgs e)
+            private void MemoryAdd_Click()
             {
-                _memory += Convert.ToDouble(_currentInput.Replace(",", "."));
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+                Memory += Convert.ToDouble(CurrentInput.Replace(",", "."));
             }
-            private void MemorySubtract_Click(object sender, RoutedEventArgs e)
+            private void MemorySubtract_Click()
             {
-                _memory -= Convert.ToDouble(_currentInput.Replace(",", "."));
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+                Memory -= Convert.ToDouble(CurrentInput.Replace(",", "."));
             }
-            private void MemoryMenu_Click(object sender, RoutedEventArgs e)
+            private void MemoryMenu_Click()
             {
                 if (MemoryMenu.Visibility == Visibility.Collapsed)
                 {
@@ -65,9 +61,9 @@ namespace Calculator.Models
                     MemoryMenu.Visibility = Visibility.Collapsed;
                 }
 
-                UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
                 UpdateMemoryButtons();
             }
+            */
         }
     }
 }

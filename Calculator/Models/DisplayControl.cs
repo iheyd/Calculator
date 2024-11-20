@@ -11,15 +11,13 @@ namespace Calculator.Models
     {
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            _currentInput = "0";
-            _previousInput = "";
-            _currentOperation = "";
-            UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+            CurrentInput = "0";
+            PreviousInput = "";
+            CurrentOperation = "";
         }
         private void ClearEnter_Click(object sender, RoutedEventArgs e)
         {
-            _currentInput = "0";
-            UpdateDisplay(_currentInput, _previousInput, _currentOperation, _memory);;
+            CurrentInput = "0";
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Calculator.Models
 {
     internal class WindowControl : BaseClass
     {
-
+        /*
         //public WindowControl()
         //{
         //    InitializeComponent();
@@ -90,6 +90,6 @@ namespace Calculator.Models
             CalcName.Text = "Инженерный";
         }
 
-
+        */
     }
 }

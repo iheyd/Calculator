@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Debug\
+C:\Users\danil\source\repos\Calc_mvvm\Calculator\obj\Release\
 Calculator
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\danil\source\repos\Calc_mvvm\Calculator\App.xaml
 6306489321
 
-141391456658
+13463882389
 9-1286470197
 Views\MainWindow.xaml;Style\Back.xaml;Style\Equal.xaml;Style\Number.xaml;Style\Operator.xaml;Style\TopPanel.xaml;
 
