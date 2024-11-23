@@ -60,6 +60,7 @@
     <Compile Include="Models\MemoryOperations.cs" />
     <Compile Include="Models\UnaryOperation.cs" />
     <Compile Include="VM\MainViewModel.cs" />
+    <Compile Include="VM\RelayCommand.cs" />
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

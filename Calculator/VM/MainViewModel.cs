@@ -1,6 +1,7 @@
 ﻿using Calculator.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Calculator.VM
 {
@@ -15,7 +16,7 @@ namespace Calculator.VM
         private readonly WindowControl _displayModel = new WindowControl();
         private readonly BaseClass _baseClass = new BaseClass();
 
-        private string _mainDisplay = "0";
+        private string _mainDisplay = "1";
 		public string mainDisplay
 		{
 			get => _mainDisplay;
@@ -48,35 +49,43 @@ namespace Calculator.VM
             }
         }
 
-        /*
-        /// <summary>
-        /// Нахуя
-        /// </summary>
+        #region Объявление функций
+        public ICommand AddCommand { get; }
+        public ICommand MinusCommand { get; }
+        public ICommand MultiplyCommand { get; }
+        public ICommand PercentCommand { get; }
+        public ICommand DivideCommand { get; }
+        public ICommand CalculateCommand { get; }
+        public ICommand ChangeCommand { get; }
+        public ICommand PowerCommand { get; }
+        public ICommand SquareCommand { get; }
+        public ICommand FormulaCommand { get; }
         
-        public MainViewModel(ArithmeticOperations arithmeticModel, WindowControl windowModel, MemoryOperations memoryModel,
-            NumbersDisplayControl numbersDisplayModel, OperationsDisplayControl operationDisplayModel, UnaryOperation unaryModel,
-            WindowControl displayModel, BaseClass baseClass)
+        public MainViewModel()
 		{
-            _arithmeticModel = arithmeticModel;
-            _windowModel = windowModel;
-            _memoryModel = memoryModel;
-            _numbersDisplayModel = numbersDisplayModel;
-            _operationDisplayModel = operationDisplayModel;
-            _unaryModel = unaryModel;
-            _displayModel = displayModel;
-            _baseClass = baseClass;
-        }*/
+            AddCommand = new RelayCommand(param => Add());
+            MinusCommand = new RelayCommand(param => Minus());
+            MultiplyCommand = new RelayCommand(param => Multiply());
+            PercentCommand = new RelayCommand(param => Percent());
+            DivideCommand = new RelayCommand(param => Divide());
+            CalculateCommand = new RelayCommand(param => Calculate());
+            ChangeCommand = new RelayCommand(param => Change());
+            PowerCommand = new RelayCommand(param => Power());
+            SquareCommand = new RelayCommand(param => Square());
+            FormulaCommand = new RelayCommand(param => Formula());
 
+        }
+        #endregion
 
-        //public ICommand Add { get; }
-
-        //binary
         private void UpdateDisplay()
         {
             _mainDisplay = _baseClass.CurrentInput;
             _previousDisplay = _baseClass.PreviousInput + _baseClass.CurrentOperation;
             _memoryDisplay = _baseClass.Memory.ToString();
         }
+
+        #region binary
+
         private void Add()
         {
             _arithmeticModel.Calculate();
@@ -107,12 +116,9 @@ namespace Calculator.VM
             _arithmeticModel.Calculate();
             UpdateDisplay();
         }
-        /// <summary>
-        /// 1/x
-        /// </summary>
+        #endregion
 
-
-        //unary
+        #region unary
         private void Change()
         {
             _unaryModel.ChangeOperation();
@@ -133,15 +139,16 @@ namespace Calculator.VM
             _unaryModel.FormulaOperation();
             UpdateDisplay();
         }
-        
-        
+        #endregion
 
-        /////////////////////////////////
+        #region Event
         public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-	}
+        #endregion
+
+    }
 }
