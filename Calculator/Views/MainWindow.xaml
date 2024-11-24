@@ -86,7 +86,6 @@
                         <Image Source="/Images/engineering.png" Stretch="None"/>
                     </Button>
                 </Grid>
-                <!-- ????? -->
                 <Grid x:Name="MemoryMenu" Width="160" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                       Margin="0,0,0,40" Visibility="Collapsed" Panel.ZIndex="100">
                     <TextBlock x:Name="MemoryInput" Text="{Binding MemoryDisplay}" Grid.Column="0" 
@@ -243,7 +242,7 @@
                         <Image Source="/Images/formula.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource Operator}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding SquareCommand}" Tag="/Images/power.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding PowerCommand}" Tag="/Images/power.png">
                         <Image Source="/Images/power.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource Operator}"

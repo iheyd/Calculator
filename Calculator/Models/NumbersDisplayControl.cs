@@ -1,126 +1,135 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows;
 
 namespace Calculator.Models
 {
     internal class NumbersDisplayControl : BaseClass
     {
-
+        private BaseClass _BaseClass;
+        public NumbersDisplayControl(BaseClass BaseClass) 
+        {
+            _BaseClass = BaseClass;
+        }
 
         public void ZeroClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "0";
+                
+                _BaseClass.CurrentInput = "0";
             }
             else
             {
-                CurrentInput += "0";
+               
+                _BaseClass.CurrentInput += "0";
             }
         }
         public void OneClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "1";
+                _BaseClass.CurrentInput = "1";
             }
             else
             {
-                CurrentInput += "1";
+                _BaseClass.CurrentInput += "1";
+                
             }
         }
         public void TwoClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "2";
+                _BaseClass.CurrentInput = "2";
             }
             else
             {
-                CurrentInput += "2";
+                _BaseClass.CurrentInput += "2";
             }
         }
         public void ThreeClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "3";
+                _BaseClass.CurrentInput = "3";
             }
             else
             {
-                CurrentInput += "3";
+                _BaseClass.CurrentInput += "3";
             }
         }
         public void FourClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "4";
+                _BaseClass.CurrentInput = "4";
             }
             else
             {
-                CurrentInput += "4";
+                _BaseClass.CurrentInput += "4";
             }
         }
         public void FiveClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "5";
+                _BaseClass.CurrentInput = "5";
             }
             else
             {
-                CurrentInput += "5";
+                _BaseClass.CurrentInput += "5";
             }
         }
         public void SixClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "6";
+                _BaseClass.CurrentInput = "6";
             }
             else
             {
-                CurrentInput += "6";
+                _BaseClass.CurrentInput += "6";
             }
         }
         public void SevenClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "7";
+                _BaseClass.CurrentInput = "7";
             }
             else
             {
-                CurrentInput += "7";
+                _BaseClass.CurrentInput += "7";
             }
         }
         public void EightClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "8";
+                _BaseClass.CurrentInput = "8";
             }
             else
             {
-                CurrentInput += "8";
+                _BaseClass.CurrentInput += "8";
             }
         }
         public void NineClick()
         {
-            if (CurrentInput == "0")
+            if (_BaseClass.CurrentInput == "0")
             {
-                CurrentInput = "9";
+                _BaseClass.CurrentInput = "9";
             }
             else
             {
-                CurrentInput += "9";
+                _BaseClass.CurrentInput += "9";
             }
         }
         public void CommaClick()
         {
-            if (!CurrentInput.Contains(","))
+            if (!_BaseClass.CurrentInput.Contains(","))
             {
-                CurrentInput += ",";
+                _BaseClass.CurrentInput += ",";
             }
         }
 

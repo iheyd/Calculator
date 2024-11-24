@@ -7,27 +7,33 @@ using System.Windows;
 
 namespace Calculator.Models
 {
-    internal class DisplayControl : BaseClass
+    internal class DisplayControl
     {
+        private BaseClass _BaseClass;
+        public DisplayControl(BaseClass BaseClass)
+        {
+            _BaseClass = BaseClass;
+        }
+
         public void ClearClick()
         {
-            CurrentInput = "0";
-            PreviousInput = "";
-            CurrentOperation = "";
+            _BaseClass.CurrentInput = "0";
+            _BaseClass.PreviousInput = "";
+            _BaseClass.CurrentOperation = "";
         }
         public void ClearEnterClick()
         {
-            CurrentInput = "0";
+            _BaseClass.CurrentInput = "0";
         }
         public void BackspaceClick()
         {
-            if (CurrentInput.Length > 1)
+            if (_BaseClass.CurrentInput.Length > 1)
             {
-                CurrentInput = CurrentInput.Substring(0, CurrentInput.Length - 1);
+                _BaseClass.CurrentInput = _BaseClass.CurrentInput.Substring(0, _BaseClass.CurrentInput.Length - 1);
             }
             else
             {
-                CurrentInput = "0";
+                _BaseClass.CurrentInput = "0";
             }
 
         }

@@ -11,7 +11,12 @@ namespace Calculator.Models
     internal class ArithmeticOperations : BaseClass
     {
 
-        
+        private BaseClass _baseClass;
+        public ArithmeticOperations(BaseClass baseClass)
+        {
+            _baseClass = baseClass;
+        }
+
         /// <summary>
         /// Поменять single responsability
         /// </summary>
@@ -19,11 +24,11 @@ namespace Calculator.Models
         {
             try
             {
-                double prev = Convert.ToDouble(PreviousInput);
-                double current = Convert.ToDouble(CurrentInput);
+                double prev = Convert.ToDouble(_baseClass.PreviousInput);
+                double current = Convert.ToDouble(_baseClass.CurrentInput);
                 double result = 0;
 
-                switch (CurrentOperation)
+                switch (_baseClass.CurrentOperation)
                 {
                     case "+":
                         result = prev + current;
@@ -44,13 +49,13 @@ namespace Calculator.Models
 
                 //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
                 //previousInputTextBlock.Text += _currentInput + "=";
-                CurrentInput = result.ToString();
-                CurrentOperation = "";
-                PreviousInput = "";
+                _baseClass.CurrentInput = result.ToString();
+                _baseClass.CurrentOperation = "";
+                _baseClass.PreviousInput = "";
             }
             catch
             {
-                CurrentInput = "0";
+                _baseClass.CurrentInput = "0";
             }
 
         }

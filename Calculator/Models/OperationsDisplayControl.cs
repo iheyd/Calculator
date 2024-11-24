@@ -8,56 +8,60 @@ using System.Windows;
 
 namespace Calculator.Models
 {
-    internal class OperationsDisplayControl : BaseClass
+    internal class OperationsDisplayControl
     {
-        
-        public void PlusClick(object sender, RoutedEventArgs e)
+        private BaseClass _baseClass;
+        public OperationsDisplayControl(BaseClass baseClass) 
         {
-            if (CurrentInput != "0")
+            _baseClass = baseClass;
+        }
+
+        public void PlusClick()
+        {
+            if (_baseClass.CurrentInput != "0")
             {
-                PreviousInput = CurrentInput;
-                CurrentOperation = "+";
-                CurrentInput = "0";
+                _baseClass.PreviousInput = _baseClass.CurrentInput;
+                _baseClass.CurrentOperation = "+";
+                _baseClass.CurrentInput = "0";
 
             }
         }
-        public void MinusClick(object sender, RoutedEventArgs e)
+        public void MinusClick()
         {
-            if (CurrentInput != "0")
+            if (_baseClass.CurrentInput != "0")
             {
-                PreviousInput = CurrentInput;
-                CurrentOperation = "-";
-                CurrentInput = "0";
+                _baseClass.PreviousInput = _baseClass.CurrentInput;
+                _baseClass.CurrentOperation = "-";
+                _baseClass.CurrentInput = "0";
 
             }
         }
-        public void MultiplyClick(object sender, RoutedEventArgs e)
+        public void MultiplyClick()
         {
-            if (CurrentInput != "0")
+            if (_baseClass.CurrentInput != "0")
             {
-                PreviousInput = CurrentInput;
-                CurrentOperation = "*";
-                CurrentInput = "0";
+                _baseClass.PreviousInput = _baseClass.CurrentInput;
+                _baseClass.CurrentOperation = "*";
+                _baseClass.CurrentInput = "0";
+            }
+        }
+        public void PercentClick()
+        {
+            if (_baseClass.CurrentInput != "0")
+            {
+                _baseClass.PreviousInput = _baseClass.CurrentInput;
+                _baseClass.CurrentOperation = "%";
+                _baseClass.CurrentInput = "0";
 
             }
         }
-        public void PercentClick(object sender, RoutedEventArgs e)
+        public void DivideClick()
         {
-            if (CurrentInput != "0")
+            if (_baseClass.CurrentInput != "0")
             {
-                PreviousInput = CurrentInput;
-                CurrentOperation = "%";
-                CurrentInput = "0";
-
-            }
-        }
-        public void DivideClick(object sender, RoutedEventArgs e)
-        {
-            if (CurrentInput != "0")
-            {
-                PreviousInput = CurrentInput;
-                CurrentOperation = "/";
-                CurrentInput = "0";
+                _baseClass.PreviousInput = _baseClass.CurrentInput;
+                _baseClass.CurrentOperation = "/";
+                _baseClass.CurrentInput = "0";
             }
         }
     }

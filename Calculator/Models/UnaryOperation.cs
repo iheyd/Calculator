@@ -10,53 +10,60 @@ namespace Calculator.Models
 {
     internal class UnaryOperation : BaseClass
     {
+
+        private BaseClass _BaseClass;
+        public UnaryOperation(BaseClass BaseClass)
+        {
+            _BaseClass = BaseClass;
+        }
+
         public void ChangeOperation()
         {
-            if (CurrentInput != "0")
+            if (_BaseClass.CurrentInput != "0")
             {
-                if (CurrentInput.StartsWith("-"))
+                if (_BaseClass.CurrentInput.StartsWith("-"))
                 {
-                    CurrentInput = CurrentInput.Substring(1);
+                    _BaseClass.CurrentInput = _BaseClass.CurrentInput.Substring(1);
                 }
                 else
                 {
-                    CurrentInput = "-" + CurrentInput;
+                    _BaseClass.CurrentInput = "-" + _BaseClass.CurrentInput;
                 }
             }
         }
         public void PowerOperation()
         {
-            if (CurrentInput != "0")
+            if (_BaseClass.CurrentInput != "0")
             {
-                double number = double.Parse(CurrentInput);
-                CurrentInput = (number * number).ToString();
+                double number = double.Parse(_BaseClass.CurrentInput);
+                _BaseClass.CurrentInput = (number * number).ToString();
                 //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
                 //previousInputTextBlock.Text = $"sqr({number})";
             }
         }
         public void SquareOperation()
         {
-            if (CurrentInput != "0")
+            if (_BaseClass.CurrentInput != "0")
             {
-                double number = double.Parse(CurrentInput);
+                double number = double.Parse(_BaseClass.CurrentInput);
                 if (number >= 0)
                 {
-                    CurrentInput = Math.Sqrt(number).ToString();
+                    _BaseClass.CurrentInput = Math.Sqrt(number).ToString();
                     //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
                     //previousInputTextBlock.Text = $"√({number})";
                 }
                 else
                 {
-                    CurrentInput = "0";
+                    _BaseClass.CurrentInput = "0";
                 }
             }
         }
         public void FormulaOperation()
         {
-            if (CurrentInput != "0")
+            if (_BaseClass.CurrentInput != "0")
             {
-                double number = double.Parse(CurrentInput);
-                CurrentInput = (1 / number).ToString();
+                double number = double.Parse(_BaseClass.CurrentInput);
+                _BaseClass.CurrentInput = (1 / number).ToString();
                 //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
                 //previousInputTextBlock.Text = $"1/({number})";
             }

@@ -1,5 +1,7 @@
 ﻿using Calculator.Models;
+using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
@@ -7,13 +9,13 @@ namespace Calculator.VM
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-		private readonly ArithmeticOperations _arithmeticModel = new ArithmeticOperations();
-		private readonly MemoryOperations _memoryModel = new MemoryOperations();
-        private readonly NumbersDisplayControl _numbersDisplayModel = new NumbersDisplayControl();
-        private readonly OperationsDisplayControl _operationDisplayModel = new OperationsDisplayControl();
-        private readonly UnaryOperation _unaryModel= new UnaryOperation();
-        private readonly DisplayControl _displayControlModel = new DisplayControl();
-        private readonly BaseClass _baseClass = new BaseClass();
+        static private readonly BaseClass _baseClass = new BaseClass();
+        private readonly ArithmeticOperations _arithmeticModel = new ArithmeticOperations(_baseClass);
+		private readonly MemoryOperations _memoryModel = new MemoryOperations(_baseClass);
+        private readonly NumbersDisplayControl _numbersDisplayModel = new NumbersDisplayControl(_baseClass);
+        private readonly OperationsDisplayControl _operationDisplayModel = new OperationsDisplayControl(_baseClass);
+        private readonly UnaryOperation _unaryModel= new UnaryOperation(_baseClass);
+        private readonly DisplayControl _displayControlModel = new DisplayControl(_baseClass);
 
         private string _mainDisplay = "0";
 		public string MainDisplay
@@ -44,6 +46,17 @@ namespace Calculator.VM
             set
             {
                 _previousDisplay = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isMemoryNotEmpty;
+        public bool IsMemoryNotEmpty
+        {
+            get => IsMemoryNotEmpty;
+            set
+            {
+                _isMemoryNotEmpty = value;
                 OnPropertyChanged();
             }
         }
@@ -79,9 +92,17 @@ namespace Calculator.VM
         public ICommand BackspaceClickCommand { get; }
         #endregion
 
+        #region Memory
+        public ICommand MemorySaveCommand { get; }
+        public ICommand MemoryClearCommand { get; }
+        public ICommand MemoryRecallCommand { get; }
+        public ICommand MemoryAddCommand { get; }
+        public ICommand MemorySubtractCommand { get; }
+        public ICommand ToggleMemoryMenuCommand { get; }
+        #endregion
+
         public MainViewModel()
 		{
-            #region OperandsCommand
             AddCommand = new RelayCommand(param => Add());
             MinusCommand = new RelayCommand(param => Minus());
             MultiplyCommand = new RelayCommand(param => Multiply());
@@ -92,9 +113,7 @@ namespace Calculator.VM
             PowerCommand = new RelayCommand(param => Power());
             SquareCommand = new RelayCommand(param => Square());
             FormulaCommand = new RelayCommand(param => Formula());
-            #endregion
 
-            #region NumbersCommand
             ZeroClickCommand = new RelayCommand(param => ZeroClick());
             OneClickCommand = new RelayCommand(param => OneClick());
             TwoClickCommand = new RelayCommand(param => TwoClick());
@@ -108,42 +127,47 @@ namespace Calculator.VM
             ClearEnterClickCommand = new RelayCommand(param => ClearEnterClick());
             ClearClickCommand = new RelayCommand(param => ClearClick());
             BackspaceClickCommand = new RelayCommand(param => BackspaceClick());
-            #endregion
+
+            MemorySaveCommand = new RelayCommand(param => MemorySave());
+            MemoryClearCommand = new RelayCommand(param => MemoryClear());
+            MemoryRecallCommand = new RelayCommand(param => MemoryRecall());
+            MemoryAddCommand = new RelayCommand(param => MemoryAdd());
+            MemorySubtractCommand = new RelayCommand(param => MemorySubtract());
         }
         #endregion
 
         private void UpdateDisplay()
         {
-            _mainDisplay = _baseClass.CurrentInput;
-            _previousDisplay = _baseClass.PreviousInput + _baseClass.CurrentOperation;
-            _memoryDisplay = _baseClass.Memory.ToString();
+            MainDisplay = _baseClass.CurrentInput;
+            PreviousDisplay = _baseClass.PreviousInput + _baseClass.CurrentOperation;
+            MemoryDisplay = _baseClass.Memory.ToString();
         }
 
         #region binaryFunc
 
         private void Add()
         {
-            _arithmeticModel.Calculate();
+            _operationDisplayModel.PlusClick();
             UpdateDisplay();
         }
         private void Minus()
         {
-            _arithmeticModel.Calculate();
+            _operationDisplayModel.MinusClick();
             UpdateDisplay();
         }
         private void Multiply()
         {
-            _arithmeticModel.Calculate();
+            _operationDisplayModel.MultiplyClick();
             UpdateDisplay();
         }
         private void Percent()
         {
-            _arithmeticModel.Calculate();
+            _operationDisplayModel.PercentClick();
             UpdateDisplay();
         }
         private void Divide()
         {
-            _arithmeticModel.Calculate();
+            _operationDisplayModel.DivideClick();
             UpdateDisplay();
         }
         private void Calculate()
@@ -249,6 +273,33 @@ namespace Calculator.VM
         {
             _displayControlModel.BackspaceClick();
             UpdateDisplay();
+        }
+        #endregion
+
+        #region MemoryFunc
+        private void MemorySave()
+        {
+            _memoryModel.MemorySave();
+        }
+
+        private void MemoryClear()
+        {
+            _memoryModel.MemoryClear();
+        }
+
+        private void MemoryRecall()
+        {
+            _memoryModel.MemoryRecall();
+        }
+
+        private void MemoryAdd()
+        {
+            _memoryModel.MemoryAdd();
+        }
+
+        private void MemorySubtract()
+        {
+            _memoryModel.MemorySubtract();
         }
         #endregion
 
