@@ -4,9 +4,9 @@ namespace Calculator.Models
 {
     internal class NumbersDisplayControl : BaseClass
     {
-        
 
-        private void Zero_Click(object sender, RoutedEventArgs e)
+
+        public void ZeroClick()
         {
             if (CurrentInput == "0")
             {
@@ -17,7 +17,7 @@ namespace Calculator.Models
                 CurrentInput += "0";
             }
         }
-        private void One_Click(object sender, RoutedEventArgs e)
+        public void OneClick()
         {
             if (CurrentInput == "0")
             {
@@ -28,7 +28,7 @@ namespace Calculator.Models
                 CurrentInput += "1";
             }
         }
-        private void Two_Click(object sender, RoutedEventArgs e)
+        public void TwoClick()
         {
             if (CurrentInput == "0")
             {
@@ -39,7 +39,7 @@ namespace Calculator.Models
                 CurrentInput += "2";
             }
         }
-        private void Three_Click(object sender, RoutedEventArgs e)
+        public void ThreeClick()
         {
             if (CurrentInput == "0")
             {
@@ -50,7 +50,7 @@ namespace Calculator.Models
                 CurrentInput += "3";
             }
         }
-        private void Four_Click(object sender, RoutedEventArgs e)
+        public void FourClick()
         {
             if (CurrentInput == "0")
             {
@@ -61,7 +61,7 @@ namespace Calculator.Models
                 CurrentInput += "4";
             }
         }
-        private void Five_Click(object sender, RoutedEventArgs e)
+        public void FiveClick()
         {
             if (CurrentInput == "0")
             {
@@ -72,7 +72,7 @@ namespace Calculator.Models
                 CurrentInput += "5";
             }
         }
-        private void Six_Click(object sender, RoutedEventArgs e)
+        public void SixClick()
         {
             if (CurrentInput == "0")
             {
@@ -83,7 +83,7 @@ namespace Calculator.Models
                 CurrentInput += "6";
             }
         }
-        private void Seven_Click(object sender, RoutedEventArgs e)
+        public void SevenClick()
         {
             if (CurrentInput == "0")
             {
@@ -94,7 +94,7 @@ namespace Calculator.Models
                 CurrentInput += "7";
             }
         }
-        private void Eight_Click(object sender, RoutedEventArgs e)
+        public void EightClick()
         {
             if (CurrentInput == "0")
             {
@@ -105,7 +105,7 @@ namespace Calculator.Models
                 CurrentInput += "8";
             }
         }
-        private void Nine_Click(object sender, RoutedEventArgs e)
+        public void NineClick()
         {
             if (CurrentInput == "0")
             {
@@ -116,7 +116,7 @@ namespace Calculator.Models
                 CurrentInput += "9";
             }
         }
-        private void Comma_Click(object sender, RoutedEventArgs e)
+        public void CommaClick()
         {
             if (!CurrentInput.Contains(","))
             {
@@ -124,17 +124,5 @@ namespace Calculator.Models
             }
         }
 
-        private void Backspace_Click(object sender, RoutedEventArgs e)
-        {
-            if (CurrentInput.Length > 1)
-            {
-                CurrentInput = CurrentInput.Substring(0, CurrentInput.Length - 1);
-            }
-            else
-            {
-                CurrentInput = "0";
-            }
-
-        }
     }
 }

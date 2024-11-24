@@ -9,15 +9,28 @@ namespace Calculator.Models
 {
     internal class DisplayControl : BaseClass
     {
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        public void ClearClick()
         {
             CurrentInput = "0";
             PreviousInput = "";
             CurrentOperation = "";
         }
-        private void ClearEnter_Click(object sender, RoutedEventArgs e)
+        public void ClearEnterClick()
         {
             CurrentInput = "0";
         }
+        public void BackspaceClick()
+        {
+            if (CurrentInput.Length > 1)
+            {
+                CurrentInput = CurrentInput.Substring(0, CurrentInput.Length - 1);
+            }
+            else
+            {
+                CurrentInput = "0";
+            }
+
+        }
     }
 }
+

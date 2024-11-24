@@ -8,16 +8,15 @@ namespace Calculator.VM
     public class MainViewModel : INotifyPropertyChanged
     {
 		private readonly ArithmeticOperations _arithmeticModel = new ArithmeticOperations();
-		private readonly WindowControl _windowModel = new WindowControl();
 		private readonly MemoryOperations _memoryModel = new MemoryOperations();
         private readonly NumbersDisplayControl _numbersDisplayModel = new NumbersDisplayControl();
         private readonly OperationsDisplayControl _operationDisplayModel = new OperationsDisplayControl();
         private readonly UnaryOperation _unaryModel= new UnaryOperation();
-        private readonly WindowControl _displayModel = new WindowControl();
+        private readonly DisplayControl _displayControlModel = new DisplayControl();
         private readonly BaseClass _baseClass = new BaseClass();
 
-        private string _mainDisplay = "1";
-		public string mainDisplay
+        private string _mainDisplay = "0";
+		public string MainDisplay
 		{
 			get => _mainDisplay;
 			set
@@ -28,7 +27,7 @@ namespace Calculator.VM
 		}
 
         private string _memoryDisplay = "";
-        public string memoryDisplay
+        public string MemoryDisplay
         {
             get => _memoryDisplay;
             set
@@ -39,7 +38,7 @@ namespace Calculator.VM
         }
 
         private string _previousDisplay = "";
-        public string previousDisplay
+        public string PreviousDisplay
         {
             get => _previousDisplay;
             set
@@ -50,6 +49,7 @@ namespace Calculator.VM
         }
 
         #region Объявление функций
+        #region Операции
         public ICommand AddCommand { get; }
         public ICommand MinusCommand { get; }
         public ICommand MultiplyCommand { get; }
@@ -60,9 +60,28 @@ namespace Calculator.VM
         public ICommand PowerCommand { get; }
         public ICommand SquareCommand { get; }
         public ICommand FormulaCommand { get; }
-        
+        #endregion
+
+        #region Числа на экран
+        public ICommand ZeroClickCommand { get; }
+        public ICommand OneClickCommand { get; }
+        public ICommand TwoClickCommand { get; }
+        public ICommand ThreeClickCommand { get; }
+        public ICommand FourClickCommand { get; }
+        public ICommand FiveClickCommand { get; }
+        public ICommand SixClickCommand { get; }
+        public ICommand SevenClickCommand { get; }
+        public ICommand EightClickCommand { get; }
+        public ICommand NineClickCommand { get; }
+        public ICommand CommaClickCommand { get; }
+        public ICommand ClearEnterClickCommand { get; }
+        public ICommand ClearClickCommand { get; }
+        public ICommand BackspaceClickCommand { get; }
+        #endregion
+
         public MainViewModel()
 		{
+            #region OperandsCommand
             AddCommand = new RelayCommand(param => Add());
             MinusCommand = new RelayCommand(param => Minus());
             MultiplyCommand = new RelayCommand(param => Multiply());
@@ -73,7 +92,23 @@ namespace Calculator.VM
             PowerCommand = new RelayCommand(param => Power());
             SquareCommand = new RelayCommand(param => Square());
             FormulaCommand = new RelayCommand(param => Formula());
+            #endregion
 
+            #region NumbersCommand
+            ZeroClickCommand = new RelayCommand(param => ZeroClick());
+            OneClickCommand = new RelayCommand(param => OneClick());
+            TwoClickCommand = new RelayCommand(param => TwoClick());
+            ThreeClickCommand = new RelayCommand(param => ThreeClick());
+            FourClickCommand = new RelayCommand(param => FourClick());
+            FiveClickCommand = new RelayCommand(param => FiveClick());
+            SixClickCommand = new RelayCommand(param => SixClick());
+            SevenClickCommand = new RelayCommand(param => SevenClick());
+            EightClickCommand = new RelayCommand(param => EightClick());
+            NineClickCommand = new RelayCommand(param => NineClick());
+            ClearEnterClickCommand = new RelayCommand(param => ClearEnterClick());
+            ClearClickCommand = new RelayCommand(param => ClearClick());
+            BackspaceClickCommand = new RelayCommand(param => BackspaceClick());
+            #endregion
         }
         #endregion
 
@@ -84,7 +119,7 @@ namespace Calculator.VM
             _memoryDisplay = _baseClass.Memory.ToString();
         }
 
-        #region binary
+        #region binaryFunc
 
         private void Add()
         {
@@ -118,7 +153,7 @@ namespace Calculator.VM
         }
         #endregion
 
-        #region unary
+        #region unaryFunc
         private void Change()
         {
             _unaryModel.ChangeOperation();
@@ -137,6 +172,82 @@ namespace Calculator.VM
         private void Formula()
         {
             _unaryModel.FormulaOperation();
+            UpdateDisplay();
+        }
+        #endregion
+
+        #region NumbersFunc
+        private void ZeroClick()
+        {
+            _numbersDisplayModel.ZeroClick();
+            UpdateDisplay();
+        }
+        private void OneClick()
+        {
+            _numbersDisplayModel.OneClick();
+            UpdateDisplay();
+        }
+        private void TwoClick()
+        {
+            _numbersDisplayModel.TwoClick();
+            UpdateDisplay();
+        }
+        private void ThreeClick()
+        {
+            _numbersDisplayModel.ThreeClick();
+            UpdateDisplay();
+        }
+        private void FourClick()
+        {
+            _numbersDisplayModel.FourClick();
+            UpdateDisplay();
+        }
+        private void FiveClick()
+        {
+            _numbersDisplayModel.FiveClick();
+            UpdateDisplay();
+        }
+        private void SixClick()
+        {
+            _numbersDisplayModel.SixClick();
+            UpdateDisplay();
+        }
+        private void SevenClick()
+        {
+            _numbersDisplayModel.SevenClick();
+            UpdateDisplay();
+        }
+        private void EightClick()
+        {
+            _numbersDisplayModel.EightClick();
+            UpdateDisplay();
+        }
+        private void NineClick()
+        {
+            _numbersDisplayModel.NineClick();
+            UpdateDisplay();
+        }
+        private void CommaClick()
+        {
+            _numbersDisplayModel.CommaClick();
+            UpdateDisplay();
+        }
+        #endregion
+
+        #region DisplayFunc
+        private void ClearEnterClick()
+        {
+            _displayControlModel.ClearEnterClick();
+            UpdateDisplay();
+        }
+        private void ClearClick()
+        {
+            _displayControlModel.ClearClick();
+            UpdateDisplay();
+        }
+        private void BackspaceClick()
+        {
+            _displayControlModel.BackspaceClick();
             UpdateDisplay();
         }
         #endregion

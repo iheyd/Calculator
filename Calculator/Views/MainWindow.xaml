@@ -89,7 +89,7 @@
                 <!-- ????? -->
                 <Grid x:Name="MemoryMenu" Width="160" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                       Margin="0,0,0,40" Visibility="Collapsed" Panel.ZIndex="100">
-                    <TextBlock x:Name="MemoryInput" Text="Память: {Binding memoryDisplay}" Grid.Column="0" 
+                    <TextBlock x:Name="MemoryInput" Text="{Binding MemoryDisplay}" Grid.Column="0" 
                                Foreground="Gray" VerticalAlignment="Center" TextAlignment="Right" FontSize="16"/>
                 </Grid>
                 <!-- История -->
@@ -97,7 +97,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="PreviousInput" Text="{Binding previousDisplay}" Grid.Column="0" 
+                    <TextBlock x:Name="PreviousInput" Text="{Binding PreviousDisplay}" Grid.Column="0" 
                                Foreground="Gray" VerticalAlignment="Center" TextAlignment="Right" FontSize="16"/>
                 </Grid>
                 <!-- Главный дисплей -->
@@ -105,7 +105,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="Display" Text="{Binding mainDisplay}" Foreground="White" VerticalAlignment="Center" TextAlignment="Right" FontSize="52"/>
+                    <TextBlock x:Name="Display" Text="{Binding MainDisplay}" Foreground="White" VerticalAlignment="Center" TextAlignment="Right" FontSize="52"/>
                 </Grid>
                 <!-- Кнопки памяти -->
                 <Grid Grid.Row="0" Height="30" VerticalAlignment="Bottom">
@@ -118,27 +118,27 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="MemoryClearButton" Grid.Column="0" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemoryClear_Click" Tag="/Images/MC.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MC.png">
                         <Image Source="/Images/MC.png" Stretch="Uniform"/>
                     </Button>
                     <Button x:Name="MemoryRecallButton" Grid.Column="1" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemoryRecall_Click" Tag="/Images/MR.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MR.png">
                         <Image Source="/Images/MR.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="2" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemoryAdd_Click" Tag="/Images/M+.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M+.png">
                         <Image Source="/Images/M+.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="3" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemorySubtract_Click" Tag="/Images/M-.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M-.png">
                         <Image Source="/Images/M-.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="4" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemorySave_Click" Tag="/Images/MS.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MS.png">
                         <Image Source="/Images/MS.png" Stretch="Uniform"/>
                     </Button>
                     <Button x:Name="MemoryMenuButton" Grid.Column="5" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="MemoryMenu_Click" Tag="/Images/M.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M.png">
                         <Image Source="/Images/M.png" Stretch="Uniform"/>
                     </Button>
                 </Grid>
@@ -162,25 +162,28 @@
                         <Image Source="/Images/change.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Zero_Click" Tag="/Images/0.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding ZeroClickCommand}" Tag="/Images/0.png">
                         <Image Source="/Images/0.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="5" Grid.Column="2" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Comma_Click" Tag="/Images/comma.png" Margin="1,1,1,1">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding CommaClickCommand}" Tag="/Images/comma.png" Margin="1,1,1,1">
                         <Image Source="/Images/comma.png" Stretch="Uniform"/>
                     </Button>
-                    <Button Grid.Row="5" Grid.Column="3" Style="{StaticResource Equal}" Command="{Binding CalculateCommand}">
+                    <Button 
+                        Grid.Row="5" Grid.Column="3" 
+                        Style="{StaticResource Equal}" 
+                        Command="{Binding CalculateCommand}">
                     </Button>
                     <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="One_Click" Tag="/Images/1.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding OneClickCommand}" Tag="/Images/1.png">
                         <Image Source="/Images/1.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Two_Click" Tag="/Images/2.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding TwoClickCommand}" Tag="/Images/2.png">
                         <Image Source="/Images/2.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Three_Click" Tag="/Images/3.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding ThreeClickCommand}" Tag="/Images/3.png">
                         <Image Source="/Images/3.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource Operator}"
@@ -188,15 +191,15 @@
                         <Image Source="/Images/plus.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Four_Click" Tag="/Images/4.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding FourClickCommand}" Tag="/Images/4.png">
                         <Image Source="/Images/4.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Five_Click" Tag="/Images/5.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding FiveClickCommand}" Tag="/Images/5.png">
                         <Image Source="/Images/5.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Six_Click" Tag="/Images/6.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding SixClickCommand}" Tag="/Images/6.png">
                         <Image Source="/Images/6.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="3" Grid.Column="3" Style="{StaticResource Operator}"
@@ -204,15 +207,15 @@
                         <Image Source="/Images/minus.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Seven_Click" Tag="/Images/7.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding SevenClickCommand}" Tag="/Images/7.png">
                         <Image Source="/Images/7.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Eight_Click" Tag="/Images/8.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding EightClickCommand}" Tag="/Images/8.png">
                         <Image Source="/Images/8.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource Number}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Nine_Click" Tag="/Images/9.png" Height="43" Margin="1,1,1,0" VerticalAlignment="Top">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding NineClickCommand}" Tag="/Images/9.png" Height="43" Margin="1,1,1,0" VerticalAlignment="Top">
                         <Image Source="/Images/9.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource Operator}"
@@ -224,15 +227,15 @@
                         <Image Source="/Images/percent.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource Operator}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="ClearEnter_Click" Tag="/Images/CE.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding ClearEnterClickCommand}" Tag="/Images/CE.png">
                         <Image Source="/Images/CE.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource Operator}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Clear_Click" Tag="/Images/C.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding ClearClickCommand}" Tag="/Images/C.png">
                         <Image Source="/Images/C.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="0" Grid.Column="3" Style="{StaticResource Operator}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Click="Backspace_Click" Tag="/Images/backspace.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" Command="{Binding BackspaceClickCommand}" Tag="/Images/backspace.png">
                         <Image Source="/Images/backspace.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource Operator}"

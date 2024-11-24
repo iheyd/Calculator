@@ -11,7 +11,7 @@ namespace Calculator.Models
     internal class OperationsDisplayControl : BaseClass
     {
         
-        private void Plus_Click(object sender, RoutedEventArgs e)
+        public void PlusClick(object sender, RoutedEventArgs e)
         {
             if (CurrentInput != "0")
             {
@@ -21,7 +21,7 @@ namespace Calculator.Models
 
             }
         }
-        private void Minus_Click(object sender, RoutedEventArgs e)
+        public void MinusClick(object sender, RoutedEventArgs e)
         {
             if (CurrentInput != "0")
             {
@@ -31,7 +31,7 @@ namespace Calculator.Models
 
             }
         }
-        private void Multiply_Click(object sender, RoutedEventArgs e)
+        public void MultiplyClick(object sender, RoutedEventArgs e)
         {
             if (CurrentInput != "0")
             {
@@ -41,7 +41,7 @@ namespace Calculator.Models
 
             }
         }
-        private void Percent_Click(object sender, RoutedEventArgs e)
+        public void PercentClick(object sender, RoutedEventArgs e)
         {
             if (CurrentInput != "0")
             {
@@ -51,7 +51,7 @@ namespace Calculator.Models
 
             }
         }
-        private void Divide_Click(object sender, RoutedEventArgs e)
+        public void DivideClick(object sender, RoutedEventArgs e)
         {
             if (CurrentInput != "0")
             {
