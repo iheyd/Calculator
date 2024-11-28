@@ -86,11 +86,7 @@
                         <Image Source="/Images/engineering.png" Stretch="None"/>
                     </Button>
                 </Grid>
-                <Grid x:Name="MemoryMenu" Width="160" HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                      Margin="0,0,0,40" Visibility="Collapsed" Panel.ZIndex="100">
-                    <TextBlock x:Name="MemoryInput" Text="{Binding MemoryDisplay}" Grid.Column="0" 
-                               Foreground="Gray" VerticalAlignment="Center" TextAlignment="Right" FontSize="16"/>
-                </Grid>
+                
                 <!-- История -->
                 <Grid Grid.Row="0" Height="32" VerticalAlignment="Top" Margin="0,32,0,0">
                     <Grid.ColumnDefinitions>
@@ -107,6 +103,15 @@
                     <TextBlock x:Name="Display" Text="{Binding MainDisplay}" Foreground="White" VerticalAlignment="Center" TextAlignment="Right" FontSize="52"/>
                 </Grid>
                 <!-- Кнопки памяти -->
+
+                <Grid x:Name="MemoryMenu" Width="160" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Margin="0,0,0,40" 
+                    Visibility="{Binding IsMemoryMenuVisible}" 
+                    Panel.ZIndex="100">
+                    <TextBlock x:Name="MemoryInput" Text="{Binding MemoryDisplay}" Grid.Column="0" 
+                     Foreground="Gray" VerticalAlignment="Center" TextAlignment="Right" FontSize="16"/>
+                </Grid>
+
                 <Grid Grid.Row="0" Height="30" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

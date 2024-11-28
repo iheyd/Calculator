@@ -183,7 +183,6 @@ namespace Calculator.VM
         {
             IsMemoryNotEmpty = _baseClass.Memory != 0;
             MemoryButtonOpacity = IsMemoryNotEmpty ? 1 : 0.3;
-            MemoryMenuVisibility = IsMemoryNotEmpty ? Visibility.Visible : Visibility.Collapsed;
             UpdateDisplay();
         }
         
