@@ -147,10 +147,9 @@
                             Command="{Binding MemorySaveCommand}" Tag="/Images/MS.png">
                         <Image Source="/Images/MS.png" Stretch="Uniform"/>
                     </Button>
-                    <!-- /////////////// -->
                     <Button x:Name="MemoryMenuButton" Grid.Column="5" Style="{StaticResource Back}"
                             MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"
-                             Tag="/Images/M.png">
+                            Command="{Binding ToggleMemoryMenuCommand}" Tag="/Images/M.png">
                         <Image Source="/Images/M.png" Stretch="Uniform"/>
                     </Button>
                 </Grid>

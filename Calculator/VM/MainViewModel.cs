@@ -167,6 +167,7 @@ namespace Calculator.VM
             MemoryRecallCommand = new RelayCommand(param => MemoryRecall());
             MemoryAddCommand = new RelayCommand(param => MemoryAdd());
             MemorySubtractCommand = new RelayCommand(param => MemorySubtract());
+            ToggleMemoryMenuCommand = new RelayCommand(param => ToggleMemoryMenu());
         }
         #endregion
 
@@ -183,10 +184,7 @@ namespace Calculator.VM
             MemoryMenuVisibility = IsMemoryNotEmpty ? Visibility.Visible : Visibility.Collapsed;
             UpdateDisplay();
         }
-        private void ToggleMemoryMenu()
-        {
-            MemoryMenuVisibility = MemoryMenuVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
-        }
+        
 
         #region binaryFunc
 
@@ -350,6 +348,11 @@ namespace Calculator.VM
         {
             _memoryModel.MemorySubtract();
             UpdateMemoryButtons();
+        }
+
+        private void ToggleMemoryMenu()
+        {
+            MemoryMenuVisibility = MemoryMenuVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
 
