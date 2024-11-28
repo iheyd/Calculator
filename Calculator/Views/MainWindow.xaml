@@ -106,7 +106,7 @@
 
                 <Grid x:Name="MemoryMenu" Width="160" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Margin="0,0,0,40" 
-                    Visibility="{Binding IsMemoryMenuVisible}" 
+                    Visibility="{Binding MemoryMenuVisibility}" 
                     Panel.ZIndex="100">
                     <TextBlock x:Name="MemoryInput" Text="{Binding MemoryDisplay}" Grid.Column="0" 
                      Foreground="Gray" VerticalAlignment="Center" TextAlignment="Right" FontSize="16"/>
