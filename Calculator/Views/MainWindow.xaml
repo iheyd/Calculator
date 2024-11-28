@@ -117,27 +117,34 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="MemoryClearButton" Grid.Column="0" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MC.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" 
+                            Command="{Binding MemoryClearCommand}" Tag="/Images/MC.png">
                         <Image Source="/Images/MC.png" Stretch="Uniform"/>
                     </Button>
                     <Button x:Name="MemoryRecallButton" Grid.Column="1" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MR.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" 
+                            Command="{Binding MemoryRecallCommand}" Tag="/Images/MR.png">
                         <Image Source="/Images/MR.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="2" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M+.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" 
+                            Command="{Binding MemoryAddCommand}" Tag="/Images/M+.png">
                         <Image Source="/Images/M+.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="3" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M-.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" 
+                            Command="{Binding MemorySubtractCommand}" Tag="/Images/M-.png">
                         <Image Source="/Images/M-.png" Stretch="Uniform"/>
                     </Button>
                     <Button Grid.Column="4" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/MS.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave" 
+                            Command="{Binding MemorySaveCommand}" Tag="/Images/MS.png">
                         <Image Source="/Images/MS.png" Stretch="Uniform"/>
                     </Button>
+                    <!-- /////////////// -->
                     <Button x:Name="MemoryMenuButton" Grid.Column="5" Style="{StaticResource Back}"
-                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"  Tag="/Images/M.png">
+                            MouseEnter="DigitButton_MouseEnter" MouseLeave="DigitButton_MouseLeave"
+                             Tag="/Images/M.png">
                         <Image Source="/Images/M.png" Stretch="Uniform"/>
                     </Button>
                 </Grid>

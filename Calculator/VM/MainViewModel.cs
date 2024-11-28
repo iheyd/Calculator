@@ -280,26 +280,31 @@ namespace Calculator.VM
         private void MemorySave()
         {
             _memoryModel.MemorySave();
+            UpdateDisplay();
         }
 
         private void MemoryClear()
         {
             _memoryModel.MemoryClear();
+            UpdateDisplay();
         }
 
         private void MemoryRecall()
         {
             _memoryModel.MemoryRecall();
+            UpdateDisplay();
         }
 
         private void MemoryAdd()
         {
             _memoryModel.MemoryAdd();
+            UpdateDisplay();
         }
 
         private void MemorySubtract()
         {
             _memoryModel.MemorySubtract();
+            UpdateDisplay();
         }
         #endregion
 

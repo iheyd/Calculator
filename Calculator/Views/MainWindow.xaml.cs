@@ -86,5 +86,7 @@ namespace Calculator.Views
         {
             CalcName.Text = "Инженерный";
         }
+
+        
     }
 }
