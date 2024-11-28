@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Calculator.Models
 {
-    internal class ArithmeticOperations : BaseClass
+    internal class ArithmeticOperations
     {
 
         private BaseClass _baseClass;

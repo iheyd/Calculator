@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace Calculator.Models
 {
-    internal class NumbersDisplayControl : BaseClass
+    internal class NumbersDisplayControl
     {
         private BaseClass _BaseClass;
         public NumbersDisplayControl(BaseClass BaseClass) 

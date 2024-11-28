@@ -34,19 +34,5 @@ namespace Calculator.Models
         {
             _baseClass.Memory -= Convert.ToDouble(_baseClass.CurrentInput.Replace(",", "."));
         }
-
-        //void MemoryMenu_Click()
-        //{
-        //    if (MemoryMenu.Visibility == Visibility.Collapsed)
-        //    {
-        //        MemoryMenu.Visibility = Visibility.Visible;
-        //    }
-        //    else
-        //    {
-        //        MemoryMenu.Visibility = Visibility.Collapsed;
-        //    }
-
-        //    UpdateMemoryButtons();
-        //}
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Calculator.Models
 {
-    internal class UnaryOperation : BaseClass
+    internal class UnaryOperation
     {
 
         private BaseClass _BaseClass;
