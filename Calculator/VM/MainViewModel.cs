@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Calculator.VM
@@ -50,13 +51,46 @@ namespace Calculator.VM
             }
         }
 
-        private bool _isMemoryNotEmpty;
+        private bool _isMemoryNotEmpty = false;
         public bool IsMemoryNotEmpty
         {
-            get => IsMemoryNotEmpty;
+            get => _isMemoryNotEmpty;
             set
             {
                 _isMemoryNotEmpty = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _memoryButtonOpacity = 0.3;
+        public double MemoryButtonOpacity
+        {
+            get => _memoryButtonOpacity;
+            set
+            {
+                _memoryButtonOpacity = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isMemoryMenuVisible = false;
+        public bool IsMemoryMenuVisible
+        {
+            get => _isMemoryMenuVisible;
+            set
+            {
+                _isMemoryMenuVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _memoryMenuVisibility = Visibility.Collapsed;
+        public Visibility MemoryMenuVisibility
+        {
+            get => _memoryMenuVisibility;
+            set
+            {
+                _memoryMenuVisibility = value;
                 OnPropertyChanged();
             }
         }
@@ -141,6 +175,17 @@ namespace Calculator.VM
             MainDisplay = _baseClass.CurrentInput;
             PreviousDisplay = _baseClass.PreviousInput + _baseClass.CurrentOperation;
             MemoryDisplay = _baseClass.Memory.ToString();
+        }
+        private void UpdateMemoryButtons()
+        {
+            IsMemoryNotEmpty = _baseClass.Memory != 0;
+            MemoryButtonOpacity = IsMemoryNotEmpty ? 1 : 0.3;
+            MemoryMenuVisibility = IsMemoryNotEmpty ? Visibility.Visible : Visibility.Collapsed;
+            UpdateDisplay();
+        }
+        private void ToggleMemoryMenu()
+        {
+            MemoryMenuVisibility = MemoryMenuVisibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
         }
 
         #region binaryFunc
@@ -280,31 +325,31 @@ namespace Calculator.VM
         private void MemorySave()
         {
             _memoryModel.MemorySave();
-            UpdateDisplay();
+            UpdateMemoryButtons();
         }
 
         private void MemoryClear()
         {
             _memoryModel.MemoryClear();
-            UpdateDisplay();
+            UpdateMemoryButtons();
         }
 
         private void MemoryRecall()
         {
             _memoryModel.MemoryRecall();
-            UpdateDisplay();
+            UpdateMemoryButtons();
         }
 
         private void MemoryAdd()
         {
             _memoryModel.MemoryAdd();
-            UpdateDisplay();
+            UpdateMemoryButtons();
         }
 
         private void MemorySubtract()
         {
             _memoryModel.MemorySubtract();
-            UpdateDisplay();
+            UpdateMemoryButtons();
         }
         #endregion
 
