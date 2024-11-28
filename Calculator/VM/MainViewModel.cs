@@ -147,6 +147,7 @@ namespace Calculator.VM
             PowerCommand = new RelayCommand(param => Power());
             SquareCommand = new RelayCommand(param => Square());
             FormulaCommand = new RelayCommand(param => Formula());
+            
 
             ZeroClickCommand = new RelayCommand(param => ZeroClick());
             OneClickCommand = new RelayCommand(param => OneClick());
@@ -161,6 +162,7 @@ namespace Calculator.VM
             ClearEnterClickCommand = new RelayCommand(param => ClearEnterClick());
             ClearClickCommand = new RelayCommand(param => ClearClick());
             BackspaceClickCommand = new RelayCommand(param => BackspaceClick());
+            CommaClickCommand = new RelayCommand(param => CommaClick());
 
             MemorySaveCommand = new RelayCommand(param => MemorySave());
             MemoryClearCommand = new RelayCommand(param => MemoryClear());

@@ -16,7 +16,7 @@ namespace Calculator.Models
         }
         public void MemorySave()
         {
-            _baseClass.Memory = Convert.ToDouble(_baseClass.CurrentInput.Replace(",", "."));
+            _baseClass.Memory = Convert.ToDouble(_baseClass.CurrentInput.Replace(".", ","));
         }
         public void MemoryClear()
         {
@@ -24,7 +24,7 @@ namespace Calculator.Models
         }
         public void MemoryRecall()
         {
-            _baseClass.CurrentInput = _baseClass.Memory.ToString().Replace(",", ".");
+            _baseClass.CurrentInput = _baseClass.Memory.ToString().Replace(".", ",");
         }
         public void MemoryAdd()
         {
