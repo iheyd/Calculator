@@ -12,8 +12,18 @@ namespace Calculator.Models
             _BaseClass = BaseClass;
         }
 
+        public void ClearClick()
+        {
+            _BaseClass.CurrentInput = "0";
+            _BaseClass.PreviousInput = "";
+            _BaseClass.CurrentOperation = "";
+            _BaseClass.Result = null;
+        }
+
         public void ZeroClick()
         {
+            if (_BaseClass.Result != null) ClearClick();//так в дефолтном калькуляторе
+
             if (_BaseClass.CurrentInput == "0")
             {
                 
@@ -27,6 +37,7 @@ namespace Calculator.Models
         }
         public void OneClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "1";
@@ -39,6 +50,7 @@ namespace Calculator.Models
         }
         public void TwoClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "2";
@@ -50,6 +62,7 @@ namespace Calculator.Models
         }
         public void ThreeClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "3";
@@ -61,6 +74,7 @@ namespace Calculator.Models
         }
         public void FourClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "4";
@@ -72,6 +86,7 @@ namespace Calculator.Models
         }
         public void FiveClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "5";
@@ -83,6 +98,7 @@ namespace Calculator.Models
         }
         public void SixClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "6";
@@ -94,6 +110,7 @@ namespace Calculator.Models
         }
         public void SevenClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "7";
@@ -105,6 +122,7 @@ namespace Calculator.Models
         }
         public void EightClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "8";
@@ -116,6 +134,7 @@ namespace Calculator.Models
         }
         public void NineClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (_BaseClass.CurrentInput == "0")
             {
                 _BaseClass.CurrentInput = "9";
@@ -127,6 +146,7 @@ namespace Calculator.Models
         }
         public void CommaClick()
         {
+            if (_BaseClass.Result != null) ClearClick();
             if (!_BaseClass.CurrentInput.Contains(","))
             {
                 _BaseClass.CurrentInput += ",";

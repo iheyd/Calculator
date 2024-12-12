@@ -20,23 +20,33 @@ namespace Calculator.Models
             _BaseClass.CurrentInput = "0";
             _BaseClass.PreviousInput = "";
             _BaseClass.CurrentOperation = "";
-            _BaseClass.Result = "0";
+            _BaseClass.Result = null;
         }
-        public void ClearEnterClick()
+        public void ClearEnterClick() //прикольная фича
         {
             _BaseClass.CurrentInput = "0";
+            _BaseClass.Result = null;
         }
         public void BackspaceClick()
         {
-            if (_BaseClass.CurrentInput.Length > 1)
+            string inputToChange = _BaseClass.Result ?? _BaseClass.CurrentInput;
+            if (inputToChange.Length > 1)
             {
-                _BaseClass.CurrentInput = _BaseClass.CurrentInput.Substring(0, _BaseClass.CurrentInput.Length - 1);
+                inputToChange = inputToChange.Substring(0, inputToChange.Length - 1);
             }
             else
             {
-                _BaseClass.CurrentInput = "0";
+                inputToChange = "0";
             }
 
+            if (_BaseClass.Result != null)
+            {
+                _BaseClass.Result = inputToChange;
+            }
+            else
+            {
+                _BaseClass.CurrentInput = inputToChange;
+            }
         }
     }
 }
