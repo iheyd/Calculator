@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace Calculator.Models
 {
@@ -17,56 +12,78 @@ namespace Calculator.Models
             _BaseClass = BaseClass;
         }
 
+        public void switcher(String inputToChange)
+        {
+            if (_BaseClass.Result != null)
+            {
+                _BaseClass.Result = inputToChange;
+            }
+            else
+            {
+                _BaseClass.CurrentInput = inputToChange;
+            }
+        }
+
         public void ChangeOperation()
         {
-            if (_BaseClass.CurrentInput != "0")
+            string inputToChange = _BaseClass.Result ?? _BaseClass.CurrentInput;
+
+            if (inputToChange != "0")
             {
-                if (_BaseClass.CurrentInput.StartsWith("-"))
+                if (inputToChange.StartsWith("-"))
                 {
-                    _BaseClass.CurrentInput = _BaseClass.CurrentInput.Substring(1);
+                    inputToChange = inputToChange.Substring(1);
                 }
                 else
                 {
-                    _BaseClass.CurrentInput = "-" + _BaseClass.CurrentInput;
+                    inputToChange = "-" + inputToChange;
                 }
             }
+
+            switcher(inputToChange);
         }
+
         public void PowerOperation()
         {
-            if (_BaseClass.CurrentInput != "0")
+            string inputToChange = _BaseClass.Result ?? _BaseClass.CurrentInput;
+
+            if (inputToChange != "0")
             {
-                double number = double.Parse(_BaseClass.CurrentInput);
-                _BaseClass.CurrentInput = (number * number).ToString();
-                //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
-                //previousInputTextBlock.Text = $"sqr({number})";
+                double number = double.Parse(inputToChange);
+                inputToChange = (number * number).ToString();
             }
+            switcher(inputToChange);
         }
         public void SquareOperation()
         {
-            if (_BaseClass.CurrentInput != "0")
+            string inputToChange = _BaseClass.Result ?? _BaseClass.CurrentInput;
+
+            if (inputToChange != "0")
             {
-                double number = double.Parse(_BaseClass.CurrentInput);
+                double number = double.Parse(inputToChange);
                 if (number >= 0)
                 {
-                    _BaseClass.CurrentInput = Math.Sqrt(number).ToString();
-                    //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
-                    //previousInputTextBlock.Text = $"√({number})";
+                    inputToChange = Math.Sqrt(number).ToString();
                 }
                 else
                 {
-                    _BaseClass.CurrentInput = "0";
+                    inputToChange = "0";
                 }
             }
+
+            switcher(inputToChange);
         }
         public void FormulaOperation()
         {
-            if (_BaseClass.CurrentInput != "0")
+            string inputToChange = _BaseClass.Result ?? _BaseClass.CurrentInput;
+
+            if (inputToChange != "0")
             {
-                double number = double.Parse(_BaseClass.CurrentInput);
-                _BaseClass.CurrentInput = (1 / number).ToString();
-                //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
-                //previousInputTextBlock.Text = $"1/({number})";
+                double number = double.Parse(inputToChange);
+                inputToChange = (1 / number).ToString();
             }
+
+            switcher(inputToChange);
         }
     }
 }

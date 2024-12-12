@@ -16,7 +16,10 @@ namespace Calculator.Models
         }
         public void MemorySave()
         {
-            _baseClass.Memory = Convert.ToDouble(_baseClass.CurrentInput.Replace(".", ","));
+            if(_baseClass.Result == null)
+                _baseClass.Memory = Convert.ToDouble(_baseClass.CurrentInput.Replace(".", ","));
+            else
+                _baseClass.Memory = Convert.ToDouble(_baseClass.Result.Replace(".", ","));
         }
         public void MemoryClear()
         {
@@ -28,11 +31,11 @@ namespace Calculator.Models
         }
         public void MemoryAdd()
         {
-            _baseClass.Memory += Convert.ToDouble(_baseClass.CurrentInput.Replace(",", "."));
+            _baseClass.Memory += Convert.ToDouble(_baseClass.Result.Replace(",", "."));
         }
         public void MemorySubtract()
         {
-            _baseClass.Memory -= Convert.ToDouble(_baseClass.CurrentInput.Replace(",", "."));
+            _baseClass.Memory -= Convert.ToDouble(_baseClass.Result.Replace(",", "."));
         }
     }
 }

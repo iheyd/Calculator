@@ -10,10 +10,11 @@ namespace Calculator.Views
 {
     public partial class MainWindow : Window
     {
-        public MainWindow() 
+        public MainWindow()
         {
             InitializeComponent();
 
+            DataContext = new MainViewModel();
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)

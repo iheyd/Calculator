@@ -56,7 +56,6 @@
     <Compile Include="Models\DisplayControl.cs" />
     <Compile Include="Models\NumbersDisplayControl.cs" />
     <Compile Include="Models\OperationsDisplayControl.cs" />
-    <Compile Include="Models\WindowControl.cs" />
     <Compile Include="Models\MemoryOperations.cs" />
     <Compile Include="Models\UnaryOperation.cs" />
     <Compile Include="VM\MainViewModel.cs" />

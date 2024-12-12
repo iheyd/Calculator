@@ -16,23 +16,27 @@ namespace Calculator.Models
             _baseClass = baseClass;
         }
 
+        public void SwitchInputs()
+        {
+            if (_baseClass.Result == null) _baseClass.PreviousInput = _baseClass.CurrentInput;
+            else _baseClass.PreviousInput = _baseClass.Result;
+            _baseClass.CurrentInput = "0";
+        }
+
         public void PlusClick()
         {
             if (_baseClass.CurrentInput != "0")
             {
-                _baseClass.PreviousInput = _baseClass.CurrentInput;
                 _baseClass.CurrentOperation = "+";
-                _baseClass.CurrentInput = "0";
-
+                SwitchInputs();
             }
         }
         public void MinusClick()
         {
             if (_baseClass.CurrentInput != "0")
             {
-                _baseClass.PreviousInput = _baseClass.CurrentInput;
                 _baseClass.CurrentOperation = "-";
-                _baseClass.CurrentInput = "0";
+                SwitchInputs();
 
             }
         }
@@ -40,18 +44,16 @@ namespace Calculator.Models
         {
             if (_baseClass.CurrentInput != "0")
             {
-                _baseClass.PreviousInput = _baseClass.CurrentInput;
                 _baseClass.CurrentOperation = "*";
-                _baseClass.CurrentInput = "0";
+                SwitchInputs();
             }
         }
         public void PercentClick()
         {
             if (_baseClass.CurrentInput != "0")
             {
-                _baseClass.PreviousInput = _baseClass.CurrentInput;
                 _baseClass.CurrentOperation = "%";
-                _baseClass.CurrentInput = "0";
+                SwitchInputs();
 
             }
         }
@@ -59,9 +61,8 @@ namespace Calculator.Models
         {
             if (_baseClass.CurrentInput != "0")
             {
-                _baseClass.PreviousInput = _baseClass.CurrentInput;
                 _baseClass.CurrentOperation = "/";
-                _baseClass.CurrentInput = "0";
+                SwitchInputs();
             }
         }
     }

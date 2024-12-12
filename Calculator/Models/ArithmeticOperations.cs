@@ -17,41 +17,41 @@ namespace Calculator.Models
             _baseClass = baseClass;
         }
 
-        /// <summary>
-        /// Поменять single responsability
-        /// </summary>
-        public void Calculate() 
+        public void Calculate()
         {
             try
             {
-                double prev = Convert.ToDouble(_baseClass.PreviousInput);
-                double current = Convert.ToDouble(_baseClass.CurrentInput);
+
+                if (_baseClass.Result != null)
+                {
+                    _baseClass.PreviousInput = _baseClass.Result;
+                }
+
+                string currentOperation = _baseClass.CurrentOperation;
+                double prevInput = Convert.ToDouble(_baseClass.PreviousInput);
+                double currentInput = Convert.ToDouble(_baseClass.CurrentInput);
                 double result = 0;
 
-                switch (_baseClass.CurrentOperation)
+                switch (currentOperation)
                 {
                     case "+":
-                        result = prev + current;
+                        result = prevInput + currentInput;
                         break;
                     case "-":
-                        result = prev - current;
+                        result = prevInput - currentInput;
                         break;
                     case "*":
-                        result = prev * current;
+                        result = prevInput * currentInput;
                         break;
                     case "/":
-                        result = prev / current;
+                        result = prevInput / currentInput;
                         break;
                     case "%":
-                        result = prev % current;
+                        result = prevInput % currentInput;
                         break;
                 }
 
-                //var previousInputTextBlock = (TextBlock)FindName("PreviousInput");
-                //previousInputTextBlock.Text += _currentInput + "=";
-                _baseClass.CurrentInput = result.ToString();
-                _baseClass.CurrentOperation = "";
-                _baseClass.PreviousInput = "";
+                _baseClass.Result = result.ToString();
             }
             catch
             {
@@ -59,11 +59,5 @@ namespace Calculator.Models
             }
 
         }
-
-        private void Equal_Click(object sender, RoutedEventArgs e)
-        {
-            Calculate();
-        }
-        
     }
 }

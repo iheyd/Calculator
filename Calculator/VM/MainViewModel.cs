@@ -51,6 +51,7 @@ namespace Calculator.VM
             }
         }
 
+        #region memory settings
         private bool _isMemoryNotEmpty = false;
         public bool IsMemoryNotEmpty
         {
@@ -94,6 +95,7 @@ namespace Calculator.VM
                 OnPropertyChanged();
             }
         }
+        #endregion
 
         #region Объявление функций
         #region Операции
@@ -173,17 +175,33 @@ namespace Calculator.VM
         }
         #endregion
 
-        private void UpdateDisplay()
+        private void UpdatePreviousDisplay() 
         {
-            MainDisplay = _baseClass.CurrentInput;
-            PreviousDisplay = _baseClass.PreviousInput + _baseClass.CurrentOperation;
+            PreviousDisplay = _baseClass.PreviousInput + " " + _baseClass.CurrentOperation;
+            if( _baseClass.Result != null)
+            {
+                PreviousDisplay = PreviousDisplay + " " + _baseClass.CurrentInput + " =";
+            }
+        }
+        private void UpdateMainDisplay()
+        {
+            UpdatePreviousDisplay();
+
+            if (_baseClass.Result != null) MainDisplay = _baseClass.Result;
+            else MainDisplay = _baseClass.CurrentInput;
+
+            
+        }
+
+        private void UpdateMemoryDisplay() 
+        {
             MemoryDisplay = _baseClass.Memory.ToString();
         }
         private void UpdateMemoryButtons()
         {
             IsMemoryNotEmpty = _baseClass.Memory != 0;
             MemoryButtonOpacity = IsMemoryNotEmpty ? 1 : 0.3;
-            UpdateDisplay();
+            UpdateMemoryDisplay();
         }
         
 
@@ -192,32 +210,32 @@ namespace Calculator.VM
         private void Add()
         {
             _operationDisplayModel.PlusClick();
-            UpdateDisplay();
+            UpdatePreviousDisplay();
         }
         private void Minus()
         {
             _operationDisplayModel.MinusClick();
-            UpdateDisplay();
+            UpdatePreviousDisplay();
         }
         private void Multiply()
         {
             _operationDisplayModel.MultiplyClick();
-            UpdateDisplay();
+            UpdatePreviousDisplay();
         }
         private void Percent()
         {
             _operationDisplayModel.PercentClick();
-            UpdateDisplay();
+            UpdatePreviousDisplay();
         }
         private void Divide()
         {
             _operationDisplayModel.DivideClick();
-            UpdateDisplay();
+            UpdatePreviousDisplay();
         }
         private void Calculate()
         {
             _arithmeticModel.Calculate();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         #endregion
 
@@ -225,22 +243,22 @@ namespace Calculator.VM
         private void Change()
         {
             _unaryModel.ChangeOperation();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void Power()
         {
             _unaryModel.PowerOperation();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void Square()
         {
             _unaryModel.SquareOperation();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void Formula()
         {
             _unaryModel.FormulaOperation();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         #endregion
 
@@ -248,57 +266,57 @@ namespace Calculator.VM
         private void ZeroClick()
         {
             _numbersDisplayModel.ZeroClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void OneClick()
         {
             _numbersDisplayModel.OneClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void TwoClick()
         {
             _numbersDisplayModel.TwoClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void ThreeClick()
         {
             _numbersDisplayModel.ThreeClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void FourClick()
         {
             _numbersDisplayModel.FourClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void FiveClick()
         {
             _numbersDisplayModel.FiveClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void SixClick()
         {
             _numbersDisplayModel.SixClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void SevenClick()
         {
             _numbersDisplayModel.SevenClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void EightClick()
         {
             _numbersDisplayModel.EightClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void NineClick()
         {
             _numbersDisplayModel.NineClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void CommaClick()
         {
             _numbersDisplayModel.CommaClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         #endregion
 
@@ -306,17 +324,17 @@ namespace Calculator.VM
         private void ClearEnterClick()
         {
             _displayControlModel.ClearEnterClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void ClearClick()
         {
             _displayControlModel.ClearClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         private void BackspaceClick()
         {
             _displayControlModel.BackspaceClick();
-            UpdateDisplay();
+            UpdateMainDisplay();
         }
         #endregion
 

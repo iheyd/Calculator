@@ -20,6 +20,7 @@ namespace Calculator.Models
             _BaseClass.CurrentInput = "0";
             _BaseClass.PreviousInput = "";
             _BaseClass.CurrentOperation = "";
+            _BaseClass.Result = "0";
         }
         public void ClearEnterClick()
         {
